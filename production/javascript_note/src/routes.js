@@ -4,10 +4,19 @@ import { BrowserRouter as Router,
     Route,
     useRoutes } from 'react-router-dom';
 import HomeScreen from './screens/home';
+import RegisterScreen from './screens/auth/register';
+import LoginScreen from './screens/auth/login';
+import NotesScreen from './screens/notes/index';
+import UsersEditScreen from './screens/users/edit';
 
 const App = () => {
     let routes = useRoutes([
         { path : '/', element : <HomeScreen /> },
+        { path : '/register', element : <RegisterScreen /> },
+        { path : '/login', element : <LoginScreen /> },
+        { path : '/notes', element : <NotesScreen /> },
+        { path : '/users/edit', element : <UsersEditScreen /> },
+        
     ]);
     return routes;
 };

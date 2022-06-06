@@ -18,9 +18,9 @@ const HomeScreen = () => (
                         <Title size={5} spaced className="has-text-light" subtitle>
                             Note is a simple note taking app that allows you to create notes and save them on the cloud.
                         </Title>
-                        <a className="button is-outlined is-white is-large">
+                        <Link to="/register" className="button is-outlined is-white is-large">
                             <strong>Get Started</strong>
-                        </a>
+                        </Link>
                     </Column>
                     <Column size={6} offset={1}>
                         <img src={PresentationImage} />
