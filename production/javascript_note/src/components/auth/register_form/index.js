@@ -1,22 +1,35 @@
 import React, { Fragment, useState } from 'react';
 import { Button, Field, Control, Input, Column, Section, Help, Label } from 'rbx';
 import { Navigate } from 'react-router-dom';
+import UsersService from '../../../services/users';
 
 function RegisterForm() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [redirectToLogin, setRedirectToLogin] = useState(false);
+    const [NavigateToLogin, setNavigateToLogin] = useState(false);
     const [error, setError] = useState(false);
 
-    if(redirectToLogin == true) {
+    const HandleSubmit = async  (evt) => {
+        evt.preventDefault();
+        try {
+            const user = await UsersService.register({name: name, email: email , password: password});
+            setNavigateToLogin  (true);
+        } catch (error) {
+            setError(true);
+        }
+    }
+
+
+
+    if(NavigateToLogin == true) {
         return <Navigate to={{pathname : "/login "}} />
     }
 
     return (
       <Fragment>
           <Column.Group centered>
-            <form>
+            <form onSubmit={HandleSubmit}>
               <Column size={12}>
                 <Field>
                   <Label size="small">Name:</Label>
@@ -58,7 +71,7 @@ function RegisterForm() {
                   <Control>
                     <Column.Group breakpoint="mobile">
                       <Column>
-                        <a className="button is-white has-text-custom-purple" onClick={e => setRedirectToLogin(true)}>Login</a>
+                        <a className="button is-white has-text-custom-purple" onClick={e => setNavigateToLogin(true)}>Login</a>
                       </Column>
                       <Column>
                         <Button color="custom-purple" outlined>Register</Button>

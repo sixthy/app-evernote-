@@ -23,7 +23,7 @@ const HomeScreen = () => (
                         </Link>
                     </Column>
                     <Column size={6} offset={1}>
-                        <img src={PresentationImage} />
+                        <img src={PresentationImage} alt= "Imagem De Exemplo"/>
                     </Column>
                 </Column.Group>
             </Container>
