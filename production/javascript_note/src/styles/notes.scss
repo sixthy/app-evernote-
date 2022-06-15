@@ -8,10 +8,11 @@
 }
 
 .bm-menu {
-    background-color: #fff;
+    background-color: white;
     padding-top: 10px;
 }
 
 .list-item.is-active{
-    background-color: #e4e4e4;
+    background-color: $custom-grey-light;
    }
+
