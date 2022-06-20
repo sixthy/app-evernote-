@@ -11,6 +11,7 @@ import { NavbarBurger } from 'rbx/components/navbar/navbar-burger';
 
 function HeaderLogged(props) {
     const [navigateToHome, setNavigateToHome] = useState(false);
+    const [user, setUser]= useState(localStorage.getItem('user'));
 
     const logOut = async () => {
         await UserService.logout();
@@ -55,7 +56,7 @@ function HeaderLogged(props) {
                         <Dropdown>
                             <Dropdown.Trigger>
                                 <Button color="custom-purple" className="navbar-item">
-                                    <span>Gabriel ▼</span>
+                                    <span>{JSON.parse(user)['name']} ▼</span>
                                 </Button>
                             </Dropdown.Trigger>
                             <Dropdown.Menu>
